@@ -19,7 +19,7 @@ deploy:
   # env name set in aws ( below the app name in the left side menu )
   env: "Dockerreact-env"
   # bucket name set up when aws instance was created
-  bucker_name: "elasticbeanstalk-us-east-2-742272358363"
+  bucket_name: "elasticbeanstalk-us-east-2-742272358363"
   # same as app name
   bucket_path: "docker-react"
   # only deploy app when branch master gets new code
