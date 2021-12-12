@@ -7,4 +7,26 @@ before_install:
   - docker build -t adrianbogdann/docker-react -f Dockerfile.dev .
 
 script: 
+# CI = true to not hang the npm run test process
   - docker run -e CI=true adrianbogdann/docker-react npm run test
+
+deploy: 
+  prodivder: elasticbeanstalk
+  # us-east-2 taken from the aws url that was generated from instance
+  region: "us-east-2"
+  # app name set in aws
+  app: "docker-react"
+  # env name set in aws ( below the app name in the left side menu )
+  env: "Dockerreact-env"
+  # bucket name set up when aws instance was created
+  bucker_name: "elasticbeanstalk-us-east-2-742272358363"
+  # same as app name
+  bucket_path: "docker-react"
+  # only deploy app when branch master gets new code
+  on:
+    branch: master
+  # environment vars declared in app.travis-ci.com for the project
+  # generated from IAM -> AWS
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secured: "$AWS_SECRET_KEY"
