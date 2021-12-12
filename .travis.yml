@@ -17,7 +17,7 @@ deploy:
   # app name set in aws
   app: "docker-react"
   # env name set in aws ( below the app name in the left side menu )
-  env: "Dockerreact-env"
+  env: "dockerreact-env"
   # bucket name set up when aws instance was created ( from s3 inside aws)
   bucket_name: "elasticbeanstalk-us-east-2-742272358363"
   # same as app name
